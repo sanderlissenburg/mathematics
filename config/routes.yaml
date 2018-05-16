@@ -1,0 +1,3 @@
+index:
+    path: /prime-factorization/{number}
+    controller: App\Infrastructure\Controller\PrimeFactorizationController::factor

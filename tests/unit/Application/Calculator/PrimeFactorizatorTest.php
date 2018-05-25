@@ -30,7 +30,7 @@ class PrimeFactorizatorTest extends TestCase
      * @param array $primes
      * @param array $tree
      */
-    public function it_can_factor_a_given_number(int $number, array $primes, array $tree): void
+    public function it_can_factor_a_given_number(int $number, array $primes, ?array $tree): void
     {
         $result = $this->primeFactorizator->factor($number);
 

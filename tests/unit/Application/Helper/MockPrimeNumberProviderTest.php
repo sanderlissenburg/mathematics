@@ -37,7 +37,7 @@ class MockPrimeNumberProviderTest extends TestCase
             [0,2],
             [31, 37],
             [137, 139],
-            [18, 9],
+            [18, 19],
             [17, 19],
         ];
     }

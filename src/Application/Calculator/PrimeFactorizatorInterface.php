@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Application\Calculators;
+namespace App\Application\Calculator;
 
 interface PrimeFactorizatorInterface
 {

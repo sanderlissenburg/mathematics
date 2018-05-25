@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+    php-fpm:
+        image: sanderlissenburg/mathematics-php-fpm
+
+    nginx:
+        ports:
+          - '80:80'
+          - '443:443'
+        image: sanderlissenburg/mathematics-nginx

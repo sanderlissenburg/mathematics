@@ -16,4 +16,4 @@ services:
       - '80:80'
       - '443:443'
     volumes:
-      - ./:/var/www/html/:cached
+      - ./public:/var/www/html/public:cached

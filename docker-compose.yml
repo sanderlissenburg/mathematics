@@ -7,13 +7,26 @@ services:
       dockerfile: './docker/php-fpm/Dockerfile'
     volumes:
       - ./:/var/www/html/:cached
+    networks:
+      - mathematics
+    labels:
+      - "traefik.enable=false"
 
   nginx:
     build:
       context: './'
       dockerfile: './docker/nginx/Dockerfile'
-    ports:
-      - '80:80'
-      - '443:443'
     volumes:
       - ./public:/var/www/html/public:cached
+    networks:
+      - mathematics
+      - lissenburg-cluster
+    labels:
+      - "traefik.frontend.rule=Host:mathematics.lissenburg.local"
+
+networks:
+    lissenburg-cluster:
+        external:
+            name: lissenburg-cluster
+    mathematics:
+        driver: bridge

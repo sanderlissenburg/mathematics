@@ -2,9 +2,7 @@ version: '3'
 
 services:
   php-fpm:
-    build:
-      context: './'
-      dockerfile: './docker/php-fpm/Dockerfile'
+    image: sanderlissenburg/mathematics-php-fpm-dev
     volumes:
       - ./:/var/www/html/:cached
     networks:
@@ -13,9 +11,7 @@ services:
       - "traefik.enable=false"
 
   nginx:
-    build:
-      context: './'
-      dockerfile: './docker/nginx/Dockerfile'
+    image: sanderlissenburg/mathematics-nginx-dev
     volumes:
       - ./public:/var/www/html/public:cached
     networks:

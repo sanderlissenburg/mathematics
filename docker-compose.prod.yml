@@ -1,11 +1,24 @@
 version: '3'
 
 services:
-    php-fpm:
-        image: sanderlissenburg/mathematics-php-fpm
+  php-fpm:
+    image: sanderlissenburg/mathematics-php-fpm
+    networks:
+      - mathematics
+    labels:
+      - "traefik.enable=false"
 
-    nginx:
-        ports:
-          - '80:80'
-          - '443:443'
-        image: sanderlissenburg/mathematics-nginx
+  nginx:
+    image: sanderlissenburg/mathematics-nginx
+    networks:
+      - mathematics
+      - lissenburg-cluster
+    labels:
+      - "traefik.frontend.rule=Host:mathematics.lissenburg.nl"
+
+networks:
+    lissenburg-cluster:
+        external:
+            name: lissenburg-cluster
+    mathematics:
+        driver: bridge
